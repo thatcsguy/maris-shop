@@ -1,0 +1,164 @@
+<html>
+<head>
+<style>
+body {
+  background-color:gray;
+  font-size: 24px;
+  font-family: fantasy;
+}
+
+.content {
+  width: 800px;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.icon {
+  width:24px;
+  height:24px;
+}
+
+.price-input {
+  margin-top: 20px;
+}
+
+#price-input-box {
+  width:50px;
+  text-align: center;
+}
+
+.table {
+  display: table;
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+}
+.table-row {
+  display: table-row;
+}
+.table-cell {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+<script>
+function goldPriceChange() {
+  var data = [
+  1,4.6,.4,.16666,3,
+  1.4,3.8,.5,.2,6,
+  ]
+
+  var p = parseInt(document.getElementById('price-input-box').value);
+
+  for(var i=0;i<10;i++) {
+  console.log('price-'+i);
+  var x = data[i]*p/95;
+    document.getElementById('price-'+i).innerHTML = "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_4.png'/> " + x.toFixed(1)
+  }
+}
+</script>
+</head>
+<body>
+<div class='content'>
+  <img src='https://i.imgur.com/S7hL60n.png'/>
+  <div class='price-input'>
+    <img class='icon' src='https://i.imgur.com/0wH53SP.png'/> 95 = 
+    <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_4.png'/> <input id='price-input-box' onchange='goldPriceChange()'/>
+  </div>
+  
+  <div class='box'>
+    <h2>Tier 1</h2>
+    <div class="table">
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_25.png'/> Harmony Leap Stone
+        </div>
+        <div class="table-cell" id='price-0'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_12.png'/> Harmony Shards (500)
+        </div>
+        <div class="table-cell" id='price-1'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_250.png'/> Destruction Stone Frag (10)
+        </div>
+        <div class="table-cell" id='price-2'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_251.png'/> Guardian Stone Frag (10)
+        </div>
+        <div class="table-cell" id='price-3'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_169.png'/> Star's Breath
+        </div>
+        <div class="table-cell" id='price-4'>
+          TBD
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <h2>Tier 2</h2>
+    <div class="table">
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_24.png'/> Life Leap Stone
+        </div>
+        <div class="table-cell" id='price-5'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_11.png'/> Life Shards (500)
+        </div>
+        <div class="table-cell" id='price-6'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_15.png'/> Destruction Stone (10)
+        </div>
+        <div class="table-cell" id='price-7'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_16.png'/> Guardian Stone (10)
+        </div>
+        <div class="table-cell" id='price-8'>
+          TBD
+        </div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">
+          <img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_167.png'/> Moons's Breath
+        </div>
+        <div class="table-cell" id='price-9'>
+          TBD
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
