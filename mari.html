@@ -50,57 +50,70 @@ body {
   padding: 10px;
   border: 1px solid rgb(56, 68, 77);
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.red {
+  background-color: darkred;
+}
 </style>
 <script>
+function toggle(el) {
+  el.classList.toggle('red')
+}
+
 function goldPriceChange() {
   var data = [
     //quant, price, html
     [
-      //T1 Leapstone
-      [15, 15, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_25.png'/> Harmony Leapstone"],
+      //T1 Blue
+      [15, 25, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_251.png'/> Guardian Frag (10)"],
+      [80, 72, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_251.png'/> Guardian Frag (10)"],
+      //T1 Red
+      [30, 120, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_250.png'/> Destruction Frag (10)"],      
       //T1 Shards
       [5, 23, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_12.png'/> Harmony Shards (500)"],
       [15, 42, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_12.png'/> Harmony Shards (500)"],
-      //T1 Red
-      [15, 60, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_250.png'/> Destruction Frag (10)"], 
-      //T1 Blue
-      [15, 25, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_251.png'/> Guardian Frag (10)"],
-      [40, 36, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_8_251.png'/> Guardian Frag (10)"], 
+      [15, 141, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_12.png'/> Harmony Shards (1000)"],
+      //T1 Leapstone
+      [50, 50, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_25.png'/> Harmony Leapstone"],
       //T1 Breath
       [10, 30, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_169.png'/> Star's Breath"],
     ],
     
     [
-      //T2 Leapstone
-      [10,14, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_24.png'/> Life Leapstone"], 
-      //T2 Shards
-      [5,19, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_11.png'/> Life Shards (500)"],
+      //T2 Blue
+      [80,160, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_16.png'/> Guardian Stone (10)"],
       //T2 Red
       [5,25, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_15.png'/> Destruction Stone (10)"],
       [15,84, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_15.png'/> Destruction Stone (10)"],
-      //T2 Blue
-      [40,80, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_16.png'/> Guardian Stone (10)"],
+      //T2 Shards
+      [10,38, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_11.png'/> Life Shards (500)"],
+      //T2 Leapstone
+      [40,56, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_10_24.png'/> Life Leapstone"],
       //T2 Breath
       [5,30, "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/use_7_167.png'/> Moon's Breath"],
     ],
     
     [
-      //T3 Leapstone
-      [5,10, "Honor Leapstone"],
-      //T3 Greater Leapstone
-      [5,50, "Greater Honor Leapstone"],
-      //T3 Shards
-      [10,56, "Honor Shards (500)"],
-      //T3 Red
-      [5,40, "Destruction Crystal (10)"],
       //T3 Blue
-      [20,60, "Guardian Crystal (10)"],
+      [20,60, "<img class='icon' src='https://i.imgur.com/UM2lepJ.png'/> Guardian Crystal (10)"],
+      //T3 Red
+      [30,240, "<img class='icon' src='https://i.imgur.com/QeY564D.png'/> Destruction Crystal (10)"],
+      //T3 Shards
+      [10,56, "<img class='icon' src='https://i.imgur.com/0zn7srK.png'/> Honor Shards (500)"],
+      //T3 Leapstone
+      [10,20, "<img class='icon' src='https://i.imgur.com/sic4GeO.png'/> Honor Leapstone"],
+      //T3 Greater Leapstone
+      [5,50, "<img class='icon' src='https://i.imgur.com/PxrZ3FH.png'/> Greater Honor Leapstone"],
       //T3 Solar Grace
-      [20,80, "Solar Grace"],
+      [20,80, "<img class='icon' src='https://i.imgur.com/7zCDz9m.png'/> Solar Grace"],
       //T3 Solar Blessing
-      [15,150, "Solar Blessing"],
+      [15,150, "<img class='icon' src='https://i.imgur.com/JWOz5YW.png'/> Solar Blessing"],
       //T3 Solar Protection
-      [3,150, "Solar Protection"],
+      [3,150, "<img class='icon' src='https://i.imgur.com/qvGBbZs.png'/> Solar Protection"],
     ],
   ]
 
@@ -117,7 +130,7 @@ function goldPriceChange() {
     var x = data[0][i][1]/data[0][i][0]*p/95;
     
     table1.innerHTML += "<div class='table-row'>"
-    table1.innerHTML += "<div class='table-cell'>" + data[0][i][2] + "</div>"
+    table1.innerHTML += "<div class='table-cell pointer' onclick='toggle(this)'>" + data[0][i][2] + "</div>"
     table1.innerHTML += "<div class='table-cell'>" + data[0][i][0] + 'x for ' + "<img class='icon' src='https://i.imgur.com/0wH53SP.png'/> " + data[0][i][1] + "</div>"
     table1.innerHTML += "<div class='table-cell'>" + "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_4.png'/> " + x.toFixed(1) + "</div>"
     table1.innerHTML += "</div>"
@@ -127,7 +140,7 @@ function goldPriceChange() {
     var x = data[1][i][1]/data[1][i][0]*p/95;
     
     table2.innerHTML += "<div class='table-row'>"
-    table2.innerHTML += "<div class='table-cell'>" + data[1][i][2] + "</div>"
+    table2.innerHTML += "<div class='table-cell pointer' onclick='toggle(this)'>" + data[1][i][2] + "</div>"
     table2.innerHTML += "<div class='table-cell'>" + data[1][i][0] + 'x for ' + "<img class='icon' src='https://i.imgur.com/0wH53SP.png'/> " + data[1][i][1] + "</div>"
     table2.innerHTML += "<div class='table-cell'>" + "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_4.png'/> " + x.toFixed(1) + "</div>"
     table2.innerHTML += "</div>"
@@ -137,7 +150,7 @@ function goldPriceChange() {
     var x = data[2][i][1]/data[2][i][0]*p/95;
     
     table3.innerHTML += "<div class='table-row'>"
-    table3.innerHTML += "<div class='table-cell'>" + data[2][i][2] + "</div>"
+    table3.innerHTML += "<div class='table-cell pointer' onclick='toggle(this)'>" + data[2][i][2] + "</div>"
     table3.innerHTML += "<div class='table-cell'>" + data[2][i][0] + 'x for ' + "<img class='icon' src='https://i.imgur.com/0wH53SP.png'/> " + data[2][i][1] + "</div>"
     table3.innerHTML += "<div class='table-cell'>" + "<img class='icon' src='https://d3planner-assets.maxroll.gg/lost-ark/icons/money_4.png'/> " + x.toFixed(1) + "</div>"
     table3.innerHTML += "</div>"
